@@ -33,7 +33,7 @@ server {
 EFO
 sudo mv $HOME/doc/v2ray.conf /etc/nginx/conf.d/
 
-sudo systemctl start nginx
+sudo systemctl restart nginx
 $LE_WORKING_DIR/acme.sh --issue -d $1 -w $HOME/app/html
 
 # 3.准备配置
