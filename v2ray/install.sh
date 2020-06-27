@@ -16,7 +16,7 @@ curl https://get.acme.sh | bash
 #2. 准备环境
 echo 'ready envirment'
 # LE_WORKING_DIR在https://get.acme.sh中定义
-. $LE_WORKING_DIR/acme.sh.env
+. $HOME/.acme.sh/acme.sh.env
 cat > $HOME/app/html/index.html << EFO
 <html>
 	<head><title>Hello world</title></head>
@@ -34,7 +34,7 @@ EFO
 sudo mv $HOME/doc/v2ray.conf /etc/nginx/conf.d/
 
 sudo systemctl restart nginx
-$LE_WORKING_DIR/acme.sh --issue -d $1 -w $HOME/app/html
+$HOME/.acme.sh/acme.sh --issue -d $1 -w $HOME/app/html
 
 # 3.准备配置
 echo 'ready configuation'
@@ -100,7 +100,7 @@ sudo mv $HOME/doc/config.json /etc/v2ray/
 # 4.启动服务
 echo 'start service'
 # LE_WORKING_DIR在https://get.acme.sh中定义
-$LE_WORKING_DIR/acme.sh --install-cert -d $1 \
+$HOME/.acme.sh/acme.sh --install-cert -d $1 \
 --cert-file      $HOME/crt/v2ray.crt  \
 --key-file       $HOME/crt/v2ray.key  \
 --fullchain-file $HOME/crt/fullchain.pem \
