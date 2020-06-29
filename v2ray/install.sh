@@ -9,20 +9,16 @@ fi
 echo 'ready software'
 UUID=`(cat /proc/sys/kernel/random/uuid)`
 mkdir -p $HOME/{app/html,pkg,crt,doc}
-sudo apt install nginx -y
+sudo apt install nginx git -y
 curl -L -s https://install.direct/go.sh | sudo bash
 curl https://get.acme.sh | bash
 
 #2. 准备环境
 echo 'ready envirment'
-# LE_WORKING_DIR在https://get.acme.sh中定义
+rm /etc/nginx/conf.d/v2ray-tls.conf
 . $HOME/.acme.sh/acme.sh.env
-cat > $HOME/app/html/index.html << EFO
-<html>
-	<head><title>Hello world</title></head>
-	<body><h1>Hello, the beautiful world!</h1></body>
-</html>
-EFO
+cd $HOME/app/html/
+git clone https://github.com/synebula/elements3d.git
 
 sudo cat > $HOME/doc/v2ray.conf << EFO
 server {
