@@ -17,8 +17,8 @@ curl https://get.acme.sh | bash
 echo 'ready envirment'
 rm /etc/nginx/conf.d/v2ray-tls.conf
 . $HOME/.acme.sh/acme.sh.env
-cd $HOME/app/html/
-git clone https://github.com/synebula/elements3d.git
+cd $HOME/app/
+git clone https://github.com/synebula/elements3d.git html
 
 sudo cat > $HOME/doc/v2ray.conf << EFO
 server {
